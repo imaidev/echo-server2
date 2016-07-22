@@ -1,3 +1,14 @@
+ 以容器方式部署在9.105上（docker run -d -p 4002:4000  jihchi/echo-server2），用于调试nginx配置文件，如nginx.conf配置：
+                 # 登入
+                location /signin {
+                        proxy_pass http://127.0.0.1:4002;
+                        proxy_redirect off;
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+可以在网页上以json方式显示http请求头的信息。
+ 
+
+
 # echo-server2
 
 ![screenshot](screenshot.jpg)
